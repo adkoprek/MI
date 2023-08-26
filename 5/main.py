@@ -1,0 +1,50 @@
+from tkinter import *
+
+
+class MainWindow(Tk):
+    states = [[-1, -1, -1],
+              [-1, -1, -1],
+              [-1, -1, -1]]
+    buttons = [[None, None, None],
+               [None, None, None],
+               [None, None, None]]
+    play_area = None
+    turn = 'o'
+
+    def __init__(self):
+        super().__init__()
+        self.title("Tic Tac Toe")
+        self.setUpWindow()
+        self.reset()
+        self.mainloop()
+
+    def setUpWindow(self):
+        Label(self, text="Tic Tac Toe", font=("Arial", 40)).pack()
+        Button(self, text="Reset", font=("Arial", 20), command=self.reset).pack()
+        self.play_area = Canvas(self, width=300, height=300, bg='white', name="play_area")
+        self.play_area.pack(pady=10, padx=10)
+
+    def reset(self):
+        self.turn = "o"
+        for i in range(3):
+            for j in range(3):
+                self.states[i][j] = -1
+                button = Button(self.play_area, text="", font=("Arial", 50), height=2, width=4,
+                                   command=lambda row=i, col=j: self.triggerGrid(row, col))
+                button.grid(row=i, column=j, sticky="nsew")
+                self.buttons[i][j] = button
+
+    def triggerGrid(self, x, y):
+        if self.turn == 'o' and self.states[x][y] == -1:
+            self.states[x][y] = 1
+            self.turn = 'x'
+            self.buttons[x][y].config(text='x')
+
+        elif self.turn == 'x' and self.states[x][y] == -1:
+            self.states[x][y] = 0
+            self.turn = 'o'
+            self.buttons[x][y].config(text='o')
+
+
+if __name__ == '__main__':
+    MainWindow()
