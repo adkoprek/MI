@@ -1,7 +1,9 @@
 from tkinter import *
 
 
+#Define the window
 class MainWindow(Tk):
+    #Capture the state of the play area
     states = [[-1, -1, -1],
               [-1, -1, -1],
               [-1, -1, -1]]
@@ -18,12 +20,14 @@ class MainWindow(Tk):
         self.reset()
         self.mainloop()
 
+    #Set up window with
     def setUpWindow(self):
         Label(self, text="Tic Tac Toe", font=("Arial", 40)).pack()
         Button(self, text="Reset", font=("Arial", 20), command=self.reset).pack()
         self.play_area = Canvas(self, width=300, height=300, bg='white', name="play_area")
         self.play_area.pack(pady=10, padx=10)
 
+    #Set up or reset the play area
     def reset(self):
         self.turn = "o"
         for i in range(3):
@@ -34,6 +38,7 @@ class MainWindow(Tk):
                 button.grid(row=i, column=j, sticky="nsew")
                 self.buttons[i][j] = button
 
+    #Triger when button on the grid pressed
     def triggerGrid(self, x, y):
         if self.turn == 'o' and self.states[x][y] == -1:
             self.states[x][y] = 1
@@ -46,5 +51,6 @@ class MainWindow(Tk):
             self.buttons[x][y].config(text='o')
 
 
+#Run the program
 if __name__ == '__main__':
     MainWindow()

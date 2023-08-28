@@ -3,6 +3,7 @@ from datetime import datetime
 from pytz import timezone
 
 
+#Create a window
 class MainWindow(Tk):
     def __init__(self):
         super().__init__()
@@ -14,6 +15,7 @@ class MainWindow(Tk):
         self.addClock("US/Hawaii", "Hawaii")
         self.mainloop()
 
+    #Add a digital clock
     def addClock(self, location, title):
         Label(self, text=title, font=("Century Gothic", 60), bg="black", fg="white").pack()
 
@@ -28,11 +30,13 @@ class MainWindow(Tk):
 
         Label(frame, font=('Century Gothic', 50), bg='black', fg='white', text=datetime.now(timezone(location)).strftime('%a')).grid(column=2, row=1)
 
+    #Handler to update time
     def time(self, location, label):
         time = datetime.now(timezone(location)).strftime("%H : %M : %S")
         label.config(text=time)
         label.after(1000, lambda: self.time(location, label))
 
 
+#Run programm
 if __name__ == '__main__':
     MainWindow()

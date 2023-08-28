@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+          <!-- Import CSS stylesheet and used font from Google, can be changed -->
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baskervville">
-        <script src="index.js"></script>
     </head>
     <body>
+        <!-- Define the header with the profile picture and profile description -->
         <header>
             <div>
                 <h1>Hi I'm Mustermann</h1>
@@ -15,10 +16,14 @@
             </div>
             <img src="images/4.jpg">
         </header>
+        
+        <!-- Define div indicator to scroll down -->
         <div id="scroll" onclick="scroll_to_content()">
             <h3>Get to know me better</h1>
             <p>👇</p>
         </div>
+        
+        <!-- Body with first a image right and text left and then changing every line -->
         <div id="content">
             <div class="content-container">
                 <img src="images/1.jpg" class="content-image left">
@@ -49,8 +54,10 @@
 </html>
 
 <script>
+//Get the objects to animate from the document
 const obj_to_animate = document.querySelectorAll(".content-description, .content-image");
 
+//Check if item is view with item as parameter
 function is_item_in_view(item) 
 {
     const rect = item.getBoundingClientRect();
@@ -58,18 +65,23 @@ function is_item_in_view(item)
 }
 
 function animate_item() {
+    //Loop over every item
     obj_to_animate.forEach(item => 
     {
+        //Check if item is in view
         if (is_item_in_view(item)) 
         {
+            //Add active to the classList, active is a custom css class with the settings for visible flyin content
             item.classList.add("active");
         } 
     });
 }
 
+//Function to scroll when label is pressed
 function scroll_to_content() {
     window.scrollTo({top: window.screen.height, behavior: 'smooth'});
 }
 
+//Check for scrolling, the nexecute animate_item
 window.addEventListener("scroll", animate_item);
 </script>
