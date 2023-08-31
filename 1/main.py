@@ -1,13 +1,11 @@
 import random as rd
 
 
-#Define array of characters
 characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
               'v', 'w', 'x', 'y', 'z']
 special_characters = ['+', '-', '*', '/', '\\', '%', 'ç', '&', '(', ')']
 
 
-#Convert string to int or exit
 def checkIfStringInt(string):
     if string.isnumeric():
         return int(string)
@@ -17,7 +15,6 @@ def checkIfStringInt(string):
         exit(-1)
 
 
-#Create password with the number of characters, special_characters and numbers
 def createPassword(nc: int, nsc: int, nn: int):
     password = ""
 
@@ -35,7 +32,6 @@ def createPassword(nc: int, nsc: int, nn: int):
     print(shuffled_password)
 
 
-#Run programm
 if __name__ == '__main__':
     print('Hi, this is your random password generator')
     number_characters = checkIfStringInt(input("How many characters should the password include? \n"))
