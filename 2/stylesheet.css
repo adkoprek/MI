@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Odin Regular';
+    src: url('assets/fonts/LarkeRegular.ttf');
+}
+
+* {
+    font-family: 'Odin Regular';
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background: rgb(195,224,210);
+    background: linear-gradient(180deg, rgba(195,224,210,1) 10%, rgba(255,255,255,1) 25%);     
+}
+
+header {
+    padding: 1vw 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(195,224,210);
+}
+
+h1 {
+    margin-top: 5vw;
+    margin-bottom: 8vw;
+    text-align: center;
+    font-size: 5em;
+    color: rgb(38, 165, 112);
+    cursor: pointer;
+}
+
+#about-me {
+    margin: 7vw 15vw;
+}
+
+#about-me div {
+    margin-top: 4vw;
+    display: flex;
+}
+
+#about-me div img {
+    border-radius: 1vw;
+    width: 48%;
+    height: 35vw;
+    margin: 0 1vw;
+}
+
+#about-me div p {
+    width: 48%;
+    height: 35vw;
+    margin: 0 1vw;
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+footer p {
+    margin-top: 3vw;
+    padding: 0.3vw 1vw;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    background-color: black;
+}
